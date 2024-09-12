@@ -2,6 +2,7 @@ import 'package:advanced_course/core/helpers/spacing.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../../core/routing/routes.dart';
 import '../../../core/theming/styles.dart';
 import '../../../core/widgets/app_button.dart';
 import '../logic/cubit/login_cubit.dart';
@@ -31,10 +32,16 @@ class LoginScreen extends StatelessWidget {
                 Column(
                   children: [
                     const EmailAndPassword(),
-                    Align(
-                        alignment: AlignmentDirectional.centerEnd,
-                        child: Text("Forget Password",
-                            style: TextStyles.font10BlueRegular)),
+                    InkWell(
+                      onTap: (){
+                        Navigator.pushNamed(context, Routes.registerScreen);
+
+                      },
+                      child: Align(
+                          alignment: AlignmentDirectional.centerEnd,
+                          child: Text("Register",
+                              style: TextStyles.font10BlueRegular)),
+                    ),
                     verticalSpace(40),
                     AppButton(
                         onPressed: () {
