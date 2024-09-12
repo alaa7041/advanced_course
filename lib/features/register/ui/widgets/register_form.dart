@@ -125,7 +125,7 @@ class _RegisterFormState extends State<RegisterForm> {
               ),
             ),
             validator: (value) {
-              if (value == null || value.isEmpty) {
+              if (value == null || value.isEmpty||value != passwordController.text) {
                 return 'Please enter a valid password';
               }
             },
