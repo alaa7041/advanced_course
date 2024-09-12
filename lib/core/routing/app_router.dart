@@ -1,6 +1,8 @@
 import 'package:advanced_course/core/di/dependancy_injection.dart';
 import 'package:advanced_course/features/login/ui/login_screen.dart';
 import 'package:advanced_course/features/home/ui/home_screen.dart';
+import 'package:advanced_course/features/register/logic/cubit/register_cubit.dart';
+import 'package:advanced_course/features/register/ui/screens/register_screen.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -21,6 +23,12 @@ class AppRouter {
           builder: (context) => BlocProvider(
               create: (context) => getIt<LoginCubit>(),
               child: const LoginScreen()),
+        );
+        case Routes.registerScreen:
+        return MaterialPageRoute(
+          builder: (context) => BlocProvider(
+              create: (context) => getIt<RegisterCubit>(),
+              child: const RegisterScreen()),
         );
 
         case Routes.homeScreen:
